@@ -135,7 +135,8 @@ int main(int argc, char *argv[])
     string sql;
     try
     {
-        connection C("dbname = postgres user = postgres password = wishtodie@123 hostaddr = 127.0.0.1 port = 5432");
+        //Enter the username in front of user and password in password section in below code....
+        connection C("dbname = postgres user =  password =  hostaddr = 127.0.0.1 port = 5432");
         if (C.is_open())
         {
             cout << "Opened database successfully: " << C.dbname() << endl;
