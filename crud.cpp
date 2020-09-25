@@ -4,28 +4,19 @@
 #include <iostream>
 using namespace std;
 using namespace pqxx;
-void func()
-{
-    string temp;
-    getline(cin, temp);
-    cout << temp << endl;
-}
 void create(connection &C)
 {
     string sql = "INSERT INTO EMPLOYEE(ID,NAME,AGE,SALARY,ADDRESS) VALUES (";
     cout << "Enter employee id: ";
-    string temp;
-    // cin.ignore();
+    string temp; 
     cin >> temp;
     sql = sql + temp + ",";
     cout << "Enter name of the employee: ";
     cin.ignore();
     getline(cin, temp);
     sql = sql + "'" + temp + "',";
-    cout << "Enter age of the employee: ";
-    // cin.ignore();
-    cin >> temp;
-    cout<<temp<<endl;
+    cout << "Enter age of the employee: "; 
+    cin >> temp; 
     sql = sql + temp + ",";
     cout << "Enter the salary of the employee: ";
     cin.ignore();
@@ -34,8 +25,7 @@ void create(connection &C)
     cout << "Enter address of the employee: ";
     cin.ignore();
     getline(cin, temp);
-    sql = sql + "'" + temp + "');";
-    cout << sql << endl;
+    sql = sql + "'" + temp + "');"; 
     work W(C);
     W.exec(sql);
     cout << "Press y/Y key to save and any other key to undo: ";
@@ -141,8 +131,7 @@ void read(connection &C)
     }
 }
 int main(int argc, char *argv[])
-{
-    // func();
+{ 
     string sql;
     try
     {
@@ -163,8 +152,7 @@ int main(int argc, char *argv[])
         W.commit();
         string str = "y";
         while (str == "y" || str == "Y")
-        {
-            // sql="";
+        { 
             cout << "Pick your choice" << endl;
             cout << "1. Create\n2. Read\n3. Update\n4. Delete\n";
             int choice;
